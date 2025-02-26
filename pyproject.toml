@@ -1,10 +1,10 @@
 [build-system]
-requires = ["hatchling"]  # Or "setuptools>=61.0" if using setuptools
+requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "dotbeat"  # Change this to your actual package name
-version = "0.1.0"
+name = "dotbeat"
+version = "1.0.1"
 description = "A library for Swatch Internet Time"
 authors = [{name = "TheOddCell", email = "me@oddcell.ca"}]
 license = {text = "Unlicence"}

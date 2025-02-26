@@ -1,7 +1,29 @@
 from time import gmtime, time
 
 class BeatTime:
+    """
+    Class to handle .beat time.
+    If no time is provided, the current time is used.
+
+    Attributes:
+        unixtime (int): Unix time to convert to .beat time.
+        gmtimeobj (time.struct_time): gmtime object to convert to .beat time.
+        og (bool): Whether to use the original .beat time format.
+        auto_update (bool): Whether to automatically update the .beat time if no time is provided.
+        beatTime (str): .beat time to convert to Unix time.
+    """
     def __init__(self, unixtime=None, gmtimeobj=None, og=False, auto_update=True, beatTime=None):
+        """
+        Initializes a BeatTime object.
+        If no time is provided, the current time is used.
+
+        Args:
+            unixtime (int): Unix time to convert to .beat time.
+            gmtimeobj (time.struct_time): gmtime object to convert to .beat time.
+            og (bool): Whether to use the original .beat time format.
+            auto_update (bool): Whether to automatically update the .beat time if no time is provided.
+            beatTime (str): .beat time to convert to Unix time.
+        """
         self.og = og
         self.auto_update = auto_update
 
@@ -22,6 +44,13 @@ class BeatTime:
         self.update_time()
     
     def update_time(self, forceprecise=False):
+        """
+        Manually update the .beat time according to the time object or auto_update.
+        Unnecessary as most ways to get the .beat time from this object automaticly update the time.
+
+        Args:
+            forceprecise (bool): Whether to force the .beat time to not be the orginal version. (without rounding)
+        """
         if self.auto_update:
             self.unixtime = time()
             self.time = gmtime(self.unixtime)
