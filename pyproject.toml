@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]  # Or "setuptools>=61.0" if using setuptools
+build-backend = "hatchling.build"
+
+[project]
+name = "dotbeat"  # Change this to your actual package name
+version = "0.1.0"
+description = "A library for Swatch Internet Time"
+authors = [{name = "TheOddCell", email = "me@oddcell.ca"}]
+license = {text = "Unlicence"}
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/theoddcell/dotbeat"
+Repository = "https://github.com/theoddcell/dotbeat"
+
+[tool.hatch.build.targets.sdist]
+include = ["dotbeat/*"]
