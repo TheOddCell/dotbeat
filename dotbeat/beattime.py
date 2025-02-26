@@ -1,5 +1,4 @@
-from time import gmtime, time
-
+from time import time, gmtime
 class BeatTime:
     """
     Class to handle .beat time.
@@ -59,10 +58,16 @@ class BeatTime:
         self.beat = round(self.beat) if self.og and not forceprecise else round(self.beat, 2)
     
     def __add__(self, other):
-        raise NotImplemented # Requests to add this should be sent to /dev/null. (jk, this will be done later, not rn)
+        self.update_time(True)
+        other.update_time(True)
+        if self.beat + other.beat > 999.99:
+            return BeatTime(beatTime=self.beat + other.beat - 999.99)
+        raise BeatTime(beatTime=self.beat + other.beat, og=self.og)
     
-    def __subtract__(self, other):
-        raise NotImplemented # same as __add__
+    def __sub__(self, other):
+        self.update_time(True)
+        other.update_time(True)
+        return BeatTime(beatTime=self.beat - other.beat, og=self.og)
     
     def __eq__(self, other):
         self.update_time(True)
@@ -131,4 +136,3 @@ class BeatTime:
 
     def __iter__(self):
         return iter([self.beat, self.time, self.unixtime])
-    
