@@ -132,4 +132,4 @@ def beatFormatString(input="@b-pr"):
         str: Formatted string.
     """
     return input.replace("@b-og", beatTime=str(BeatTime(og=True)))\
-        .replace("@b-pr",beatTime=str(BeatTime()))\
+        .replace("@b-pr",beatTime=str(BeatTime()))
