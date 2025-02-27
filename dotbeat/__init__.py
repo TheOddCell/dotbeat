@@ -1,2 +1,2 @@
 from .beattime import BeatTime
-from .beattools import BeatTimer, BeatSchedule, timetobeat, beattotime
+from .beattools import BeatTimer, BeatSchedule, timeToBeat, beatToTime
